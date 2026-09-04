@@ -3,7 +3,7 @@ import { auth } from "./auth";
 
 export async function middleware(request: NextRequest) {
   const session = await auth();
-  if (!session?.user.role || session.user.role !== "Admin") {
+  if (!session?.user.role || session.user.role !== "ADMIN") {
     return NextResponse.redirect(new URL("/", request.url));
   } else {
     return NextResponse.next();
